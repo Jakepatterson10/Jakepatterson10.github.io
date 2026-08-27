@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="description" content="Jake Patterson — mechanical engineering portfolio" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;500;600&family=Barlow+Condensed:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" />
+<link rel="stylesheet" href="ds/styles.css" />
+<style>
+  body { margin: 0; background: var(--color-bg); }
+  a { color: var(--color-accent-700); text-decoration: none; }
+  a:hover { color: var(--color-accent-800); }
+  *:focus-visible { outline: 2px solid var(--color-accent); outline-offset: 2px; }
+</style>
+</helmet>
+<template id="__bundler_thumbnail"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="#5980a6"></rect><text x="50" y="50" text-anchor="middle" dominant-baseline="central" font-family="Barlow Condensed, sans-serif" font-weight="700" font-size="30" fill="#f2f2f3">JP</text></svg></template>
+<div style="min-height: 100vh; background: var(--color-bg); color: var(--color-text); font-family: var(--font-body); font-size: 16px; line-height: 1.55;">
+
+  <header style="position: sticky; top: 0; z-index: 20; background: color-mix(in srgb, var(--color-bg) 92%, transparent); backdrop-filter: blur(6px); border-bottom: 1px solid var(--color-divider);">
+    <div style="max-width: 1180px; margin: 0 auto; padding: 14px 32px; display: flex; align-items: baseline; justify-content: space-between; gap: 24px;">
+      <button type="button" onClick="{{ goHome }}" style="appearance: none; background: none; border: 0; padding: 0; cursor: pointer; font-family: var(--font-heading); font-weight: 700; font-size: 21px; letter-spacing: 0.02em; text-transform: uppercase; color: var(--color-text);">Jake Patterson</button>
+      <nav style="display: flex; gap: 26px; font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase;">
+        <button type="button" onClick="{{ goHome }}" style="appearance: none; background: none; border: 0; padding: 4px 0; cursor: pointer; font: inherit; letter-spacing: inherit; text-transform: inherit; color: var(--color-neutral-700);" style-hover="color: var(--color-accent-700);">Home</button>
+        <button type="button" onClick="{{ goProjects }}" style="appearance: none; background: none; border: 0; padding: 4px 0; cursor: pointer; font: inherit; letter-spacing: inherit; text-transform: inherit; color: var(--color-neutral-700);" style-hover="color: var(--color-accent-700);">Projects</button>
+        <button type="button" onClick="{{ goResume }}" style="appearance: none; background: none; border: 0; padding: 4px 0; cursor: pointer; font: inherit; letter-spacing: inherit; text-transform: inherit; color: var(--color-neutral-700);" style-hover="color: var(--color-accent-700);">Résumé</button>
+        <button type="button" onClick="{{ goContact }}" style="appearance: none; background: none; border: 0; padding: 4px 0; cursor: pointer; font: inherit; letter-spacing: inherit; text-transform: inherit; color: var(--color-neutral-700);" style-hover="color: var(--color-accent-700);">Contact</button>
+      </nav>
+    </div>
+  </header>
+
+  <sc-if value="{{ isHome }}" hint-placeholder-val="{{ true }}">
+  <main data-screen-label="Home">
+    <section style="max-width: 1180px; margin: 0 auto; padding: 72px 32px 56px; display: grid; grid-template-columns: 1.35fr 1fr; gap: 56px; align-items: start;">
+      <div>
+        <p style="margin: 0 0 18px; font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--color-accent-700);">Mechanical Engineering Portfolio</p>
+        <h1 style="margin: 0; font-family: var(--font-heading); font-weight: 700; font-size: 76px; line-height: 0.95; letter-spacing: -0.01em; text-transform: uppercase;">Jake<br />Patterson</h1>
+        <p style="margin: 22px 0 0; font-family: var(--font-heading); font-weight: 500; font-size: 24px; letter-spacing: 0.01em; color: var(--color-neutral-700);">Design. Manufacturing. Problem solving.</p>
+        <p style="margin: 26px 0 0; max-width: 54ch; font-size: 17px; color: var(--color-neutral-800); text-wrap: pretty;">The projects presented in this portfolio demonstrate the practical skills I have developed throughout my studies. These projects have strengthened my abilities in problem-solving, design, technical communication, and teamwork. Together, they showcase both my technical knowledge and my growth as an aspiring mechanical engineer.</p>
+        <div style="margin-top: 34px; display: flex; gap: 12px; flex-wrap: wrap;">
+          <button type="button" onClick="{{ goProjects }}" class="btn btn-primary blueprint" style="cursor: pointer; font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; padding: 13px 22px; white-space: nowrap; width: auto; height: auto;"><i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>View projects</button>
+          <button type="button" onClick="{{ goContact }}" class="btn btn-secondary" style="cursor: pointer; font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; padding: 13px 22px;">Get in touch</button>
+        </div>
+      </div>
+      <div class="blueprint" style="border: 1px solid var(--color-divider); padding: 26px;">
+        <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
+        <p style="margin: 0 0 18px; font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--color-neutral-600);">Details</p>
+        <dl style="margin: 0; display: grid; grid-template-columns: 86px 1fr; row-gap: 12px; column-gap: 14px; font-size: 14px;">
+          <dt style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-neutral-600); padding-top: 2px;">Study</dt>
+          <dd style="margin: 0;">BE(Hons) Mechanical, University of Canterbury — second year, aerospace minor intended</dd>
+          <dt style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-neutral-600); padding-top: 2px;">Graduation</dt>
+          <dd style="margin: 0;">2028</dd>
+          <dt style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-neutral-600); padding-top: 2px;">Clubs</dt>
+          <dd style="margin: 0;">UC Motorsport, UC Aerospace, UC Human Power</dd>
+          <dt style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-neutral-600); padding-top: 2px;">Based</dt>
+          <dd style="margin: 0;">Christchurch, New Zealand</dd>
+          <dt style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-neutral-600); padding-top: 2px;">Email</dt>
+          <dd style="margin: 0;"><a href="mailto:jakerobpat@gmail.com">jakerobpat@gmail.com</a></dd>
+        </dl>
+      </div>
+    </section>
+
+    <section data-reveal="1" style="max-width: 1180px; margin: 0 auto; padding: 8px 32px 64px;">
+      <div style="display: flex; align-items: baseline; justify-content: space-between; border-top: 2px solid var(--color-text); padding-top: 14px;">
+        <h2 style="margin: 0; font-family: var(--font-heading); font-weight: 700; font-size: 34px; text-transform: uppercase; letter-spacing: 0.01em;">Skills</h2>
+        <p style="margin: 0; font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--color-neutral-600);">From the workshop and the screen</p>
+      </div>
+      <div style="margin-top: 28px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px;">
+        <sc-for list="{{ skillGroups }}" as="grp" hint-placeholder-count="4">
+          <div style="border-left: 1px solid var(--color-divider); padding: 4px 0 4px 18px;">
+            <h3 style="margin: 0 0 10px; font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--color-accent-700);">{{ grp.name }}</h3>
+            <ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 6px; font-size: 14px; color: var(--color-neutral-800);">
+              <sc-for list="{{ grp.items }}" as="it" hint-placeholder-count="4">
+                <li>{{ it }}</li>
+              </sc-for>
+            </ul>
+          </div>
+        </sc-for>
+      </div>
+    </section>
+
+    <section data-reveal="1" style="max-width: 1180px; margin: 0 auto; padding: 0 32px 96px;">
+      <div style="display: flex; align-items: baseline; justify-content: space-between; border-top: 2px solid var(--color-text); padding-top: 14px;">
+        <h2 style="margin: 0; font-family: var(--font-heading); font-weight: 700; font-size: 34px; text-transform: uppercase; letter-spacing: 0.01em;">Selected work</h2>
+        <button type="button" onClick="{{ goProjects }}" style="appearance: none; background: none; border: 0; padding: 0; cursor: pointer; font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--color-accent-700);">All projects ›</button>
+      </div>
+      <div style="margin-top: 28px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;">
+        <sc-for list="{{ featured }}" as="p" hint-placeholder-count="0">
+          <button type="button" onClick="{{ p.open }}" class="blueprint" style="appearance: none; text-align: left; cursor: pointer; background: none; border: 1px solid var(--color-divider); padding: 0; display: flex; flex-direction: column;" style-hover="border-color: var(--color-accent);">
+            <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
+            <div style="width: 100%; aspect-ratio: 4 / 3; overflow: hidden; border-bottom: 1px solid var(--color-divider);">
+              <img data-src="{{ p.cover }}" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="{{ p.title }}" style="width: 100%; height: 100%; object-fit: cover; display: block;" />
+            </div>
+            <div style="padding: 18px 20px 22px;">
+              <p style="margin: 0 0 8px; font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--color-neutral-600);">{{ p.org }}</p>
+              <h3 style="margin: 0 0 10px; font-family: var(--font-heading); font-weight: 600; font-size: 25px; text-transform: uppercase; letter-spacing: 0.01em; color: var(--color-text);">{{ p.title }}</h3>
+              <p style="margin: 0; font-size: 14px; color: var(--color-neutral-700);">{{ p.skillLine }}</p>
+            </div>
+          </button>
+        </sc-for>
+      </div>
+    </section>
+  </main>
+  </sc-if>
+
+  <sc-if value="{{ isProjects }}" hint-placeholder-val="{{ false }}">
+  <main data-screen-label="Projects" style="max-width: 1180px; margin: 0 auto; padding: 64px 32px 96px;">
+    <p style="margin: 0 0 14px; font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--color-accent-700);">Projects</p>
+    <h1 style="margin: 0; font-family: var(--font-heading); font-weight: 700; font-size: 58px; line-height: 1; text-transform: uppercase;">Grouped by skill</h1>
+    <p style="margin: 18px 0 0; max-width: 62ch; font-size: 17px; color: var(--color-neutral-800);">Projects from university coursework, UC Motorsport, UC Aerospace and UC Human Power. Several appear under more than one group.</p>
+
+    <div style="margin-top: 44px; display: flex; flex-direction: column; gap: 64px;">
+      <sc-for list="{{ groups }}" as="g" hint-placeholder-count="4">
+        <section data-reveal="1">
+          <div style="display: flex; align-items: baseline; justify-content: space-between; border-top: 2px solid var(--color-text); padding-top: 14px;">
+            <h2 style="margin: 0; font-family: var(--font-heading); font-weight: 700; font-size: 34px; text-transform: uppercase; letter-spacing: 0.01em;">{{ g.name }}</h2>
+          </div>
+          <p style="margin: 12px 0 0; max-width: 62ch; font-size: 15px; color: var(--color-neutral-700);">{{ g.note }}</p>
+          <div style="margin-top: 24px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;">
+            <sc-for list="{{ g.items }}" as="p" hint-placeholder-count="0">
+              <button type="button" onClick="{{ p.open }}" class="blueprint" style="appearance: none; text-align: left; cursor: pointer; background: none; border: 1px solid var(--color-divider); padding: 0; display: flex; flex-direction: column;" style-hover="border-color: var(--color-accent);">
+                <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
+                <div style="width: 100%; aspect-ratio: 4 / 3; overflow: hidden; border-bottom: 1px solid var(--color-divider);">
+                  <img data-src="{{ p.cover }}" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="{{ p.title }}" style="width: 100%; height: 100%; object-fit: cover; display: block;" />
+                </div>
+                <div style="padding: 16px 18px 20px;">
+                  <p style="margin: 0 0 8px; font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--color-neutral-600);">{{ p.org }}</p>
+                  <h3 style="margin: 0 0 8px; font-family: var(--font-heading); font-weight: 600; font-size: 23px; text-transform: uppercase; color: var(--color-text);">{{ p.title }}</h3>
+                  <p style="margin: 0; font-size: 14px; color: var(--color-neutral-700);">{{ p.skillLine }}</p>
+                </div>
+              </button>
+            </sc-for>
+          </div>
+        </section>
+      </sc-for>
+    </div>
+  </main>
+  </sc-if>
+
+  <sc-if value="{{ isProject }}" hint-placeholder-val="{{ false }}">
+  <main data-screen-label="Project detail" style="max-width: 1180px; margin: 0 auto; padding: 40px 32px 96px;">
+    <button type="button" onClick="{{ goProjects }}" style="appearance: none; background: none; border: 0; padding: 0; margin-bottom: 34px; cursor: pointer; font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--color-accent-700);">‹ All projects</button>
+    <div style="display: flex; align-items: flex-end; justify-content: space-between; gap: 32px; border-bottom: 2px solid var(--color-text); padding-bottom: 14px;">
+      <h1 style="margin: 0; font-family: var(--font-heading); font-weight: 700; font-size: 62px; line-height: 0.98; text-transform: uppercase;">{{ current.title }}</h1>
+      <p style="margin: 0; font-family: 'IBM Plex Mono', monospace; font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--color-neutral-600); white-space: nowrap;">{{ current.org }}</p>
+    </div>
+
+    <div style="margin-top: 34px; display: grid; grid-template-columns: repeat(auto-fill, minmax(270px, 1fr)); gap: 20px;">
+      <sc-for list="{{ current.figures }}" as="f" hint-placeholder-count="0">
+        <figure class="blueprint" style="margin: 0; border: 1px solid var(--color-divider); padding: 10px;">
+          <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
+          <div style="position: relative; width: 100%; aspect-ratio: 4 / 3; overflow: hidden; display: flex; align-items: center; justify-content: center; background: var(--color-neutral-100);">
+            <img data-src="{{ f.src }}" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="{{ f.caption }}" style="width: 100%; height: 100%; object-fit: cover; display: block;" />
+            <sc-if value="{{ f.empty }}" hint-placeholder-val="{{ false }}">
+              <span style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; padding: 0 14px; text-align: center; font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.08em; color: var(--color-neutral-600);">Add assets/{{ f.file }}</span>
+            </sc-if>
+          </div>
+          <figcaption style="margin-top: 10px; font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.08em; color: var(--color-neutral-600); text-align: center;">{{ f.caption }}</figcaption>
+        </figure>
+      </sc-for>
+    </div>
+
+    <div style="margin-top: 48px; display: grid; grid-template-columns: 1.5fr 1fr; gap: 48px; align-items: start;">
+      <div>
+        <h2 style="margin: 0 0 14px; font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--color-accent-700);">Overview</h2>
+        <p style="margin: 0; font-size: 18px; line-height: 1.6; color: var(--color-neutral-800); text-wrap: pretty;">{{ current.body }}</p>
+      </div>
+      <div class="blueprint" style="border: 1px solid var(--color-divider); padding: 22px;">
+        <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
+        <h2 style="margin: 0 0 14px; font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--color-neutral-600);">Skills</h2>
+        <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+          <sc-for list="{{ current.skills }}" as="s" hint-placeholder-count="4">
+            <span class="tag tag-outline" style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.06em; white-space: nowrap; height: auto; align-items: center;">{{ s }}</span>
+          </sc-for>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top: 72px; border-top: 1px solid var(--color-divider); padding-top: 20px; display: flex; justify-content: space-between; gap: 24px;">
+      <button type="button" onClick="{{ goPrev }}" style="appearance: none; background: none; border: 0; padding: 0; cursor: pointer; text-align: left; font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--color-accent-700);">‹ {{ prevTitle }}</button>
+      <button type="button" onClick="{{ goNext }}" style="appearance: none; background: none; border: 0; padding: 0; cursor: pointer; text-align: right; font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--color-accent-700);">{{ nextTitle }} ›</button>
+    </div>
+  </main>
+  </sc-if>
+
+  <sc-if value="{{ isResume }}" hint-placeholder-val="{{ false }}">
+  <main data-screen-label="Résumé" style="max-width: 900px; margin: 0 auto; padding: 64px 32px 96px;">
+    <p style="margin: 0 0 14px; font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--color-accent-700);">Résumé</p>
+    <div style="display: flex; align-items: flex-end; justify-content: space-between; gap: 24px; border-bottom: 2px solid var(--color-text); padding-bottom: 16px;">
+      <h1 style="margin: 0; font-family: var(--font-heading); font-weight: 700; font-size: 58px; line-height: 1; text-transform: uppercase;">Jake Patterson</h1>
+      <a href="assets/Jake-Patterson-CV.pdf" target="_blank" class="btn btn-secondary" style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; white-space: nowrap;">Download PDF</a>
+    </div>
+
+    <section style="margin-top: 44px;">
+      <h2 style="margin: 0 0 12px; font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--color-accent-700);">Profile</h2>
+      <p style="margin: 0; font-size: 17px; color: var(--color-neutral-800); text-wrap: pretty;">Second year Mechanical Engineering student at the University of Canterbury, with a strong passion for design, manufacturing and problem solving. I am experienced in multiple CAD systems, as well as a range of fabrication methods. These skills are demonstrated in my portfolio, through an array of projects completed for the University and its clubs. I take pride in my work and am eager to get the opportunity to contribute towards more projects and develop my knowledge and skills further in a professional environment.</p>
+    </section>
+
+    <section style="margin-top: 44px;">
+      <h2 style="margin: 0 0 16px; font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--color-accent-700);">Technical skills</h2>
+      <dl style="margin: 0; display: grid; grid-template-columns: 210px 1fr; row-gap: 12px; column-gap: 20px; font-size: 15px;">
+        <sc-for list="{{ cvSkills }}" as="row" hint-placeholder-count="8">
+          <dt style="font-family: var(--font-heading); font-weight: 600; font-size: 17px; text-transform: uppercase; letter-spacing: 0.02em; color: var(--color-neutral-700);">{{ row.label }}</dt>
+          <dd style="margin: 0; color: var(--color-neutral-800); border-bottom: 1px solid var(--color-divider); padding-bottom: 12px;">{{ row.value }}</dd>
+        </sc-for>
+      </dl>
+    </section>
+
+    <section style="margin-top: 44px;">
+      <h2 style="margin: 0 0 16px; font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--color-accent-700);">Education</h2>
+      <div style="display: flex; flex-direction: column; gap: 26px;">
+        <div>
+          <h3 style="margin: 0 0 4px; font-family: var(--font-heading); font-weight: 600; font-size: 24px; text-transform: uppercase;">The University of Canterbury</h3>
+          <p style="margin: 0 0 8px; font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.12em; color: var(--color-neutral-600);">2024 – CURRENT</p>
+          <p style="margin: 0; font-size: 16px; color: var(--color-neutral-800);">Second year of mechanical with an intended minor in aerospace. Active member of UC Motorsport, helping with chassis and wheel fabrication. I am also active in UC Aerospace with the Australian University's Rocketry Competition (AURC) rocket, focusing on the airframe manufacture. Expected graduation in 2028.</p>
+        </div>
+        <div>
+          <h3 style="margin: 0 0 4px; font-family: var(--font-heading); font-weight: 600; font-size: 24px; text-transform: uppercase;">St Andrews College</h3>
+          <p style="margin: 0 0 8px; font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.12em; color: var(--color-neutral-600);">2018 – 2023</p>
+          <p style="margin: 0; font-size: 16px; color: var(--color-neutral-800);">NCEA Level 1 and 2 excellence endorsements and a Level 3 merit endorsement, additionally earning the Materials Technologies Award and academic excellence awards. Completed the Duke of Edinburgh's Bronze, Silver, and Gold Awards.</p>
+        </div>
+      </div>
+    </section>
+
+    <section style="margin-top: 44px;">
+      <h2 style="margin: 0 0 16px; font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--color-accent-700);">Employment &amp; volunteering</h2>
+      <p style="margin: 0 0 14px; font-size: 16px; color: var(--color-neutral-800);">I work at Bunnings Warehouse as a Trade Team Member. This role has strengthened my ability to communicate clearly and professionally with tradespeople and has given me practical knowledge of materials and products used in general construction, along with strong customer service.</p>
+      <p style="margin: 0; font-size: 16px; color: var(--color-neutral-800);">Additionally, completed over 90 hours of volunteering through the Duke of Edinburgh's Award alone, primarily supporting the organisation of large community events. This volunteering developed strong teamwork, communication, and planning skills, while coordinating with vendors, volunteers, and the public.</p>
+    </section>
+
+    <section style="margin-top: 44px;">
+      <h2 style="margin: 0 0 16px; font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--color-accent-700);">Hobbies &amp; interests</h2>
+      <p style="margin: 0; font-size: 16px; color: var(--color-neutral-800);">I enjoy outdoor activities, including hiking and camping, mainly around the South Island of New Zealand. Participate in sports such as surfing, running, golf and hockey, developing teamwork and discipline. Outside of sporting activities, I love to travel and experience different cultures as well as enjoying woodworking in addition to the projects laid out in my portfolio.</p>
+    </section>
+  </main>
+  </sc-if>
+
+  <sc-if value="{{ isContact }}" hint-placeholder-val="{{ false }}">
+  <main data-screen-label="Contact" style="max-width: 1180px; margin: 0 auto; padding: 72px 32px 120px; display: grid; grid-template-columns: 1.2fr 1fr; gap: 56px; align-items: start;">
+    <div>
+      <p style="margin: 0 0 14px; font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--color-accent-700);">Contact</p>
+      <h1 style="margin: 0; font-family: var(--font-heading); font-weight: 700; font-size: 62px; line-height: 1; text-transform: uppercase;">Get in touch</h1>
+      <p style="margin: 22px 0 0; max-width: 52ch; font-size: 17px; color: var(--color-neutral-800); text-wrap: pretty;">I take pride in my work and am eager to get the opportunity to contribute towards more projects and develop my knowledge and skills further in a professional environment.</p>
+      <div style="margin-top: 30px; display: flex; gap: 12px; flex-wrap: wrap;">
+        <a href="mailto:jakerobpat@gmail.com" class="btn btn-primary blueprint" style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; padding: 13px 22px; white-space: nowrap; width: auto; height: auto;"><i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>Email me</a>
+        <a href="https://www.linkedin.com/in/jake-pattersonnz" target="_blank" class="btn btn-secondary" style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; padding: 13px 22px;">LinkedIn</a>
+      </div>
+    </div>
+    <div class="blueprint" style="border: 1px solid var(--color-divider); padding: 26px;">
+      <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
+      <dl style="margin: 0; display: grid; grid-template-columns: 90px 1fr; row-gap: 14px; column-gap: 14px; font-size: 15px;">
+        <dt style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-neutral-600);">Email</dt>
+        <dd style="margin: 0;"><a href="mailto:jakerobpat@gmail.com">jakerobpat@gmail.com</a></dd>
+        <dt style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-neutral-600);">LinkedIn</dt>
+        <dd style="margin: 0;">jake-pattersonnz</dd>
+        <dt style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-neutral-600);">Location</dt>
+        <dd style="margin: 0;">Christchurch, New Zealand</dd>
+      </dl>
+    </div>
+  </main>
+  </sc-if>
+
+  <footer style="border-top: 1px solid var(--color-divider); margin-top: 0;">
+    <div style="max-width: 1180px; margin: 0 auto; padding: 26px 32px; display: flex; justify-content: space-between; gap: 24px; font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-neutral-600);">
+      <span>Jake Patterson — Mechanical Engineering Portfolio</span>
+      <span>Christchurch, New Zealand</span>
+    </div>
+  </footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;groupProjects&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Projects page&quot;}}">
+const PROJECTS = [
+  {
+    slug: 'kotare', title: 'Project Kōtare', org: 'UC Aerospace',
+    tags: ['composites', 'cad', 'aero'],
+    skills: ['Composites Manufacturing', 'SolidWorks', 'Prototyping', 'Teamwork'],
+    cover: 'kotare-3.png',
+    images: [
+      { file: 'kotare-1.png', caption: 'SolidWorks Model of Avionics Sled' },
+      { file: 'kotare-2.png', caption: 'Nose Cone Fiberglass Infusion' },
+      { file: 'kotare-3.png', caption: 'Dry Fit of AirFrame' },
+      { file: 'kotare-4.png', caption: '', pending: true },
+      { file: 'kotare-5.png', caption: '', pending: true },
+      { file: 'kotare-6.png', caption: '', pending: true }
+    ],
+    body: "As part of the Composites team, I contributed to the manufacture of a 2.5 m airframe for a high-powered rocket designed to reach an altitude of 10,000 ft. The project involved a range of manufacturing techniques, including carbon fibre and fibreglass wet layups, resin infusion, and prepreg carbon fibre. In addition, I collaborated with the Avionics team to design and manufacture an avionics sled to house the rocket's electronics."
+  },
+  {
+    slug: 'nzra', title: 'NZRA Level 1 Rocket', org: 'UC Aerospace',
+    tags: ['aero', 'fabrication'],
+    skills: ['OpenRocket', 'Fabrication Techniques', 'External Coordination', 'Formal Report Writing'],
+    cover: 'nzra-3.png',
+    images: [
+      { file: 'nzra-1.png', caption: 'Epoxy of Fins to Airframe' },
+      { file: 'nzra-2.png', caption: 'Launch Day Preparation' },
+      { file: 'nzra-3.png', caption: 'Launch of Our Rocket' },
+      { file: 'nzra-4.png', caption: '', pending: true },
+      { file: 'nzra-5.png', caption: '', pending: true },
+      { file: 'nzra-6.png', caption: '', pending: true }
+    ],
+    body: "As team lead, I coordinated the meetings and logistics of a team researching and building a model rocket. The project involved simulating the rocket's performance in OpenRocket to predict flight metrics. This led to a report covering propulsion, airframe design, stability and recovery systems. The practical build taught rocket construction techniques including the use of different epoxies for structural and sealing applications. The launch was coordinated with Tāwhaki to ensure there was no breach of airspace requirements. This project strengthened my leadership, project management and rocket system knowledge."
+  },
+  {
+    slug: 'wheel', title: 'Wheel Machining Mounts', org: 'UC Motorsport',
+    tags: ['cad', 'fabrication'],
+    skills: ['Onshape', 'Technical Communication', 'Problem Solving', 'Design Coordination'],
+    cover: 'wheel-3.png',
+    images: [
+      { file: 'wheel-1.png', caption: 'Bead Delaminating' },
+      { file: 'wheel-2.png', caption: 'Tyre Bead Brace Plate' },
+      { file: 'wheel-3.png', caption: 'Machining Mount for Tyre' },
+      { file: 'wheel-4.png', caption: '', pending: true },
+      { file: 'wheel-5.png', caption: '', pending: true },
+      { file: 'wheel-6.png', caption: '', pending: true }
+    ],
+    body: 'The purpose of this project was to design machining jigs for the carbon wheels of the 2026 University of Canterbury Motorsport (UCM) car, as well as a machined brace to prevent the bead delaminating or breaking while the wheel was being levered onto the tyre. The project involved using Onshape to create all CAD models, coordinating with the tyre designer to ensure the correct profiles were achieved, and working with machine shop technicians to ensure the components were manufactured accurately. This project strengthened my CAD design and collaborative problem-solving skills.'
+  },
+  {
+    slug: 'formularc', title: 'Formula RC', org: 'UC Motorsport',
+    tags: ['cad', 'fabrication'],
+    skills: ['SolidWorks', '3D Printing', 'Leadership', 'Organisation', 'Iterative Design'],
+    cover: 'formularc-3.png',
+    images: [
+      { file: 'formularc-1.png', caption: 'Suspension SolidWorks Model' },
+      { file: 'formularc-2.png', caption: 'Crude Steering Implementation' },
+      { file: 'formularc-3.png', caption: 'Fully 3D Printed Differential' },
+      { file: 'formularc-4.png', caption: '', pending: true },
+      { file: 'formularc-5.png', caption: '', pending: true },
+      { file: 'formularc-6.png', caption: '', pending: true }
+    ],
+    body: 'As team lead, I am managing a team entered into a competition held by UCM, where the objective is to design, build, and 3D print an RC car to compete against other teams. The project involves the design and manufacture of custom components while considering performance, reliability, and ease of manufacture. The aim of this project is to develop my understanding of 3D printing processes, CAD design, and the basic systems that make up a car. It is also providing valuable experience in leadership, project management, teamwork, and iterative design.'
+  },
+  {
+    slug: 'chassis', title: 'Chassis Manufacture', org: 'UC Motorsport',
+    tags: ['composites', 'fabrication'],
+    skills: ['Plug Manufacture', 'Carbon Infusion', 'Prepreg Layups of Complex Shapes'],
+    cover: 'chassis-3.png',
+    images: [
+      { file: 'chassis-1.png', caption: 'CNC Milled Plugs (Pre Sanding)' },
+      { file: 'chassis-2.png', caption: 'Outer Shell Infusion Layup' },
+      { file: 'chassis-3.png', caption: 'First Prepreg Layup of Chassis' },
+      { file: 'chassis-4.png', caption: '', pending: true },
+      { file: 'chassis-5.png', caption: '', pending: true },
+      { file: 'chassis-6.png', caption: '', pending: true }
+    ],
+    body: "As a junior member of UC Motorsport, I assisted the composites team in the early stages of manufacturing the 2026 car's carbon monocoque. My initial work involved sanding the plugs to achieve the required surface quality for mould production. I then gained exposure to more advanced composite manufacturing techniques, including resin infusion for the initial shell and prepreg carbon fibre layup for the final chassis. Working alongside experienced UCM members gave me valuable insight into the precision and process control required in high-performance composite fabrication."
+  },
+  {
+    slug: 'windtunnel', title: 'Wind Tunnel', org: 'UC Human Power',
+    tags: ['aero', 'cad', 'fabrication'],
+    skills: ['SolidWorks', '3D Printing', 'Laser Cutting', 'General Manufacture'],
+    cover: 'windtunnel-3.png',
+    images: [
+      { file: 'windtunnel-1.png', caption: 'Initial CAD model' },
+      { file: 'windtunnel-2.png', caption: 'First Dry Fit' },
+      { file: 'windtunnel-3.png', caption: 'Complete Wind Tunnel' },
+      { file: 'windtunnel-4.png', caption: '', pending: true },
+      { file: 'windtunnel-5.png', caption: '', pending: true },
+      { file: 'windtunnel-6.png', caption: '', pending: true }
+    ],
+    body: "This project was for the UC Human Power club's outreach program. It required the design and manufacture of a reduced scale wind tunnel for KidsFest and Children's University. The aim of the project is to spark school children's interest in STEM subjects by providing an interactive experience that introduces them to the basic concepts of aerodynamics. Throughout the project, I developed my skills in CAD design and manufacturing methods, as well as communicating engineering concepts to wider audiences."
+  },
+  {
+    slug: 'warman', title: '2026 Warman Design Competition', org: 'UC Coursework',
+    tags: ['cad', 'electronics', 'fabrication'],
+    skills: ['SolidWorks', 'Laser Cutting', '3D Printing', 'Technical Drawing', 'Time Management'],
+    cover: 'warman-3.png',
+    images: [
+      { file: 'warman-1.png', caption: 'Initial CAD Model' },
+      { file: 'warman-2.png', caption: 'Testing the Electrical Components' },
+      { file: 'warman-3.png', caption: 'First Fabrication of Systems' },
+      { file: 'warman-4.png', caption: '', pending: true },
+      { file: 'warman-5.png', caption: '', pending: true },
+      { file: 'warman-6.png', caption: '', pending: true }
+    ],
+    body: 'The Warman Design Competition is a randomly assigned, team-based competition where we are required to design, prototype, and build a system to meet a set brief and rulebook. All work needs to be supported by technical reports, engineering drawings, and CAD models. The project involves practical manufacturing skills such as laser cutting, 3D printing, and general fabrication, alongside testing and refinement of multiple design iterations. This project has taught me how to apply a structured design process under time constraints, improve my CAD and prototyping skills, and develop more effective teamwork and problem solving through continuous iteration.'
+  },
+  {
+    slug: 'tapwrench', title: 'Tap Wrench', org: 'UC Coursework',
+    tags: ['fabrication'],
+    skills: ['Precision Machining', 'Welding', 'Technical Drawing Interpretation'],
+    cover: 'tapwrench-3.png',
+    images: [
+      { file: 'tapwrench-1.png', caption: 'Exploded View of Tap Wrench' },
+      { file: 'tapwrench-2.png', caption: 'Drawing Used in Fabrication' },
+      { file: 'tapwrench-3.png', caption: 'Finished Tap Wrench' },
+      { file: 'tapwrench-4.png', caption: '', pending: true },
+      { file: 'tapwrench-5.png', caption: '', pending: true },
+      { file: 'tapwrench-6.png', caption: '', pending: true }
+    ],
+    body: 'The workshop training programme focused on developing skills in precision machining and metal fabrication, as well as improving the ability to interpret technical drawings and understand how components are manufactured, so this can be kept in mind during the design process. It involved hands-on experience with a range of equipment including the lathe, mill, MIG and stick welding, drill press, bandsaw, and basic finishing processes such as filing and sanding. The training taught me how to precisely machine and fabricate components, improved my understanding of manufacturing constraints, and gave me practical insight into how design decisions are constrained by production methods.'
+  }
+];
+
+const GROUPS = [
+  { key: 'composites', name: 'Composites', note: 'Carbon and fibreglass layups, resin infusion, plug and mould work.' },
+  { key: 'cad', name: 'CAD & Design', note: 'SolidWorks and Onshape models, technical drawings, design coordination.' },
+  { key: 'fabrication', name: 'Machining & Fabrication', note: 'Lathe and mill work, welding, 3D printing, laser cutting and assembly.' },
+  { key: 'aero', name: 'Aerospace & Aerodynamics', note: 'Airframes, flight simulation and aerodynamic test equipment.' },
+  { key: 'electronics', name: 'Electronics & Systems', note: 'Microcontroller circuits, sensors and powered mechanisms.' }
+];
+
+class Component extends DCLogic {
+  state = { view: 'home', slug: PROJECTS[0].slug };
+
+  componentDidMount() { this.observe(); this.hydrateImages(); }
+  componentDidUpdate() { this.observe(); this.hydrateImages(); }
+
+  hydrateImages() {
+    requestAnimationFrame(() => {
+      document.querySelectorAll('img[data-src]').forEach((el) => {
+        const v = el.dataset.src;
+        if (!v || v.indexOf('{{') !== -1) return;
+        el.src = v;
+        el.removeAttribute('data-src');
+      });
+    });
+  }
+
+  observe() {
+    if (!this._io) {
+      this._io = new IntersectionObserver((entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) {
+            e.target.style.opacity = '1';
+            e.target.style.transform = 'none';
+            this._io.unobserve(e.target);
+          }
+        });
+      }, { rootMargin: '0px 0px -8% 0px', threshold: 0.05 });
+    }
+    requestAnimationFrame(() => {
+      document.querySelectorAll('[data-reveal="1"]').forEach((el) => {
+        if (el.dataset.revealed) return;
+        el.dataset.revealed = '1';
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(18px)';
+        el.style.transition = 'opacity .6s ease, transform .6s cubic-bezier(.2,.7,.3,1)';
+        this._io.observe(el);
+      });
+    });
+  }
+
+  go(view, slug) {
+    this.setState({ view: view, slug: slug || this.state.slug });
+    window.scrollTo({ top: 0, behavior: 'instant' });
+  }
+
+  decorate(p) {
+    const figures = p.images.map((im) => ({
+      src: im.pending ? '' : 'assets/' + im.file,
+      file: im.file || '',
+      caption: im.caption || '',
+      empty: !!im.pending
+    }));
+    const cover = p.cover ? 'assets/' + p.cover : (figures.find((f) => f.src) || {}).src || '';
+    return Object.assign({}, p, {
+      cover: cover,
+      skillLine: p.skills.slice(0, 3).join(' · '),
+      figures: figures,
+      open: () => this.go('project', p.slug)
+    });
+  }
+
+  renderVals() {
+    const view = this.state.view;
+    const grouped = this.props.groupProjects !== false;
+    const idx = Math.max(0, PROJECTS.findIndex((p) => p.slug === this.state.slug));
+    const current = this.decorate(PROJECTS[idx]);
+    const prev = PROJECTS[(idx - 1 + PROJECTS.length) % PROJECTS.length];
+    const next = PROJECTS[(idx + 1) % PROJECTS.length];
+
+    const groups = grouped
+      ? GROUPS.map((g) => {
+          const items = PROJECTS.filter((p) => p.tags.indexOf(g.key) !== -1).map((p) => this.decorate(p));
+          return { name: g.name, note: g.note, items: items };
+        }).filter((g) => g.items.length > 0)
+      : [{ name: 'All projects', note: 'Every project, most recent work first.', items: PROJECTS.map((p) => this.decorate(p)) }];
+
+    return {
+      isHome: view === 'home',
+      isProjects: view === 'projects',
+      isProject: view === 'project',
+      isResume: view === 'resume',
+      isContact: view === 'contact',
+      goHome: () => this.go('home'),
+      goProjects: () => this.go('projects'),
+      goResume: () => this.go('resume'),
+      goContact: () => this.go('contact'),
+      goPrev: () => this.go('project', prev.slug),
+      goNext: () => this.go('project', next.slug),
+      prevTitle: prev.title,
+      nextTitle: next.title,
+      current: current,
+      groups: groups,
+      featured: [PROJECTS[0], PROJECTS[4], PROJECTS[6]].map((p) => this.decorate(p)),
+      skillGroups: [
+        { name: 'Fabrication', items: ['Precision lathe and mill', 'Composite structures', 'Welding', 'Woodworking'] },
+        { name: 'Digital', items: ['SolidWorks', 'Onshape', 'Fusion 360', 'Python'] },
+        { name: 'Electronics', items: ['Microcontroller circuits', 'Sensors', 'Avionics systems', 'Wiring and soldering'] },
+        { name: 'Practice', items: ['Prototyping', 'Iterative design', 'Technical drawing', 'Teamwork and leadership'] }
+      ],
+      cvSkills: [
+        { label: 'Advanced fabrication', value: 'Precision lathe and mill, composite structures' },
+        { label: 'General fabrication', value: '3D printing, laser cutting, welding, woodworking' },
+        { label: 'CAD', value: 'SolidWorks, Onshape, Fusion360' },
+        { label: 'General design', value: 'Technical drawing, dimensioning, descriptive drawing' },
+        { label: 'Programming', value: 'Python, basic C++ for microcontrollers' },
+        { label: 'Electronics', value: 'Microcontroller circuits, sensors, avionics systems, wiring and soldering' },
+        { label: 'Engineering practice', value: 'Prototyping, iterative design, problem solving' },
+        { label: 'Strengths', value: 'Teamwork, collaborative design, leadership, organisation' }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>
