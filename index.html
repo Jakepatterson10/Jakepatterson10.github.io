@@ -40,7 +40,6 @@
       <div>
         <p style="margin: 0 0 18px; font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--color-accent-700);">Mechanical Engineering Portfolio</p>
         <h1 style="margin: 0; font-family: var(--font-heading); font-weight: 700; font-size: 76px; line-height: 0.95; letter-spacing: -0.01em; text-transform: uppercase;">Jake<br />Patterson</h1>
-        <p style="margin: 22px 0 0; font-family: var(--font-heading); font-weight: 500; font-size: 24px; letter-spacing: 0.01em; color: var(--color-neutral-700);">Design. Manufacturing. Problem solving.</p>
         <p style="margin: 26px 0 0; max-width: 54ch; font-size: 17px; color: var(--color-neutral-800); text-wrap: pretty;">The projects presented in this portfolio demonstrate the practical skills I have developed throughout my studies. These projects have strengthened my abilities in problem-solving, design, technical communication, and teamwork. Together, they showcase both my technical knowledge and my growth as an aspiring mechanical engineer.</p>
         <div style="margin-top: 34px; display: flex; gap: 12px; flex-wrap: wrap;">
           <button type="button" onClick="{{ goProjects }}" class="btn btn-primary blueprint" style="cursor: pointer; font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; padding: 13px 22px; white-space: nowrap; width: auto; height: auto;"><i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>View projects</button>
@@ -49,14 +48,12 @@
       </div>
       <div class="blueprint" style="border: 1px solid var(--color-divider); padding: 26px;">
         <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
-        <p style="margin: 0 0 18px; font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--color-neutral-600);">Details</p>
+        <h3 style="margin: 0 0 18px; font-family: 'IBM Plex Mono', monospace; font-weight: 700; font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--color-text);">Details</h3>
         <dl style="margin: 0; display: grid; grid-template-columns: 86px 1fr; row-gap: 12px; column-gap: 14px; font-size: 14px;">
           <dt style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-neutral-600); padding-top: 2px;">Study</dt>
           <dd style="margin: 0;">BE(Hons) Mechanical, University of Canterbury — second year, aerospace minor intended</dd>
           <dt style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-neutral-600); padding-top: 2px;">Graduation</dt>
           <dd style="margin: 0;">2028</dd>
-          <dt style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-neutral-600); padding-top: 2px;">Clubs</dt>
-          <dd style="margin: 0;">UC Motorsport, UC Aerospace, UC Human Power</dd>
           <dt style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-neutral-600); padding-top: 2px;">Based</dt>
           <dd style="margin: 0;">Christchurch, New Zealand</dd>
           <dt style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-neutral-600); padding-top: 2px;">Email</dt>
@@ -68,7 +65,6 @@
     <section data-reveal="1" style="max-width: 1180px; margin: 0 auto; padding: 8px 32px 64px;">
       <div style="display: flex; align-items: baseline; justify-content: space-between; border-top: 2px solid var(--color-text); padding-top: 14px;">
         <h2 style="margin: 0; font-family: var(--font-heading); font-weight: 700; font-size: 34px; text-transform: uppercase; letter-spacing: 0.01em;">Skills</h2>
-        <p style="margin: 0; font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--color-neutral-600);">From the workshop and the screen</p>
       </div>
       <div style="margin-top: 28px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px;">
         <sc-for list="{{ skillGroups }}" as="grp" hint-placeholder-count="4">
@@ -105,38 +101,51 @@
         </sc-for>
       </div>
     </section>
+
+    <section data-reveal="1" style="max-width: 1180px; margin: 0 auto; padding: 0 32px 96px;">
+      <div style="display: flex; align-items: baseline; justify-content: space-between; border-top: 2px solid var(--color-text); padding-top: 14px;">
+        <h2 style="margin: 0; font-family: var(--font-heading); font-weight: 700; font-size: 34px; text-transform: uppercase; letter-spacing: 0.01em;">Outside the workshop</h2>
+        <p style="margin: 0; font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--color-neutral-600);">Hobbies</p>
+      </div>
+      <div style="margin-top: 28px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px;">
+        <sc-for list="{{ hobbies }}" as="h" hint-placeholder-count="4">
+          <article class="blueprint" style="border: 1px solid var(--color-divider); padding: 0; display: flex; flex-direction: column;">
+            <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
+            <h3 style="margin: 0; padding: 11px 13px 9px; font-family: var(--font-heading); font-weight: 600; font-size: 17px; text-transform: uppercase; letter-spacing: 0.01em; color: var(--color-text);">{{ h.title }}</h3>
+            <div style="position: relative; width: 100%; aspect-ratio: 4 / 3; overflow: hidden; border-top: 1px solid var(--color-divider); border-bottom: 1px solid var(--color-divider); background: var(--color-neutral-100);">
+              <img data-src="{{ h.src }}" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="{{ h.title }}" style="width: 100%; height: 100%; object-fit: cover; display: block;" />
+              <span style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; padding: 0 10px; text-align: center; font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.06em; color: var(--color-neutral-600);">Add assets/{{ h.file }}</span>
+            </div>
+            <p style="margin: 0; padding: 11px 13px 14px; font-size: 12.5px; line-height: 1.5; color: var(--color-neutral-700); text-wrap: pretty;">{{ h.blurb }}</p>
+          </article>
+        </sc-for>
+      </div>
+    </section>
   </main>
   </sc-if>
 
   <sc-if value="{{ isProjects }}" hint-placeholder-val="{{ false }}">
   <main data-screen-label="Projects" style="max-width: 1180px; margin: 0 auto; padding: 64px 32px 96px;">
     <p style="margin: 0 0 14px; font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--color-accent-700);">Projects</p>
-    <h1 style="margin: 0; font-family: var(--font-heading); font-weight: 700; font-size: 58px; line-height: 1; text-transform: uppercase;">Grouped by skill</h1>
-    <p style="margin: 18px 0 0; max-width: 62ch; font-size: 17px; color: var(--color-neutral-800);">Projects from university coursework, UC Motorsport, UC Aerospace and UC Human Power. Several appear under more than one group.</p>
+    <h1 style="margin: 0; font-family: var(--font-heading); font-weight: 700; font-size: 58px; line-height: 1; text-transform: uppercase;">Selected work</h1>
+    <p style="margin: 18px 0 0; max-width: 62ch; font-size: 17px; color: var(--color-neutral-800);">Projects from university coursework, UC Motorsport, UC Aerospace and UC Human Power.</p>
 
-    <div style="margin-top: 44px; display: flex; flex-direction: column; gap: 64px;">
-      <sc-for list="{{ groups }}" as="g" hint-placeholder-count="4">
-        <section data-reveal="1">
-          <div style="display: flex; align-items: baseline; justify-content: space-between; border-top: 2px solid var(--color-text); padding-top: 14px;">
-            <h2 style="margin: 0; font-family: var(--font-heading); font-weight: 700; font-size: 34px; text-transform: uppercase; letter-spacing: 0.01em;">{{ g.name }}</h2>
+    <div data-reveal="1" style="margin-top: 44px; border-top: 2px solid var(--color-text); padding-top: 28px; display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 24px;">
+      <sc-for list="{{ gallery }}" as="p" hint-placeholder-count="0">
+        <button type="button" onClick="{{ p.open }}" class="blueprint" style="appearance: none; text-align: left; cursor: pointer; background: none; border: 1px solid var(--color-divider); padding: 0; display: flex; flex-direction: column;" style-hover="border-color: var(--color-accent);">
+          <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
+          <div style="position: relative; width: 100%; aspect-ratio: 4 / 3; overflow: hidden; border-bottom: 1px solid var(--color-divider); background: var(--color-neutral-100);">
+            <img data-src="{{ p.cover }}" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="{{ p.title }}" style="width: 100%; height: 100%; object-fit: cover; display: block;" />
+            <sc-if value="{{ p.blank }}" hint-placeholder-val="{{ false }}">
+              <span style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--color-neutral-600);">In progress</span>
+            </sc-if>
           </div>
-          <p style="margin: 12px 0 0; max-width: 62ch; font-size: 15px; color: var(--color-neutral-700);">{{ g.note }}</p>
-          <div style="margin-top: 24px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;">
-            <sc-for list="{{ g.items }}" as="p" hint-placeholder-count="0">
-              <button type="button" onClick="{{ p.open }}" class="blueprint" style="appearance: none; text-align: left; cursor: pointer; background: none; border: 1px solid var(--color-divider); padding: 0; display: flex; flex-direction: column;" style-hover="border-color: var(--color-accent);">
-                <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
-                <div style="width: 100%; aspect-ratio: 4 / 3; overflow: hidden; border-bottom: 1px solid var(--color-divider);">
-                  <img data-src="{{ p.cover }}" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="{{ p.title }}" style="width: 100%; height: 100%; object-fit: cover; display: block;" />
-                </div>
-                <div style="padding: 16px 18px 20px;">
-                  <p style="margin: 0 0 8px; font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--color-neutral-600);">{{ p.org }}</p>
-                  <h3 style="margin: 0 0 8px; font-family: var(--font-heading); font-weight: 600; font-size: 23px; text-transform: uppercase; color: var(--color-text);">{{ p.title }}</h3>
-                  <p style="margin: 0; font-size: 14px; color: var(--color-neutral-700);">{{ p.skillLine }}</p>
-                </div>
-              </button>
-            </sc-for>
+          <div style="padding: 16px 18px 20px;">
+            <p style="margin: 0 0 8px; font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--color-neutral-600);">{{ p.org }}</p>
+            <h3 style="margin: 0 0 8px; font-family: var(--font-heading); font-weight: 600; font-size: 23px; text-transform: uppercase; color: var(--color-text);">{{ p.title }}</h3>
+            <p style="margin: 0; font-size: 14px; color: var(--color-neutral-700);">{{ p.skillLine }}</p>
           </div>
-        </section>
+        </button>
       </sc-for>
     </div>
   </main>
@@ -257,7 +266,7 @@
         <dt style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-neutral-600);">Email</dt>
         <dd style="margin: 0;"><a href="mailto:jakerobpat@gmail.com">jakerobpat@gmail.com</a></dd>
         <dt style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-neutral-600);">LinkedIn</dt>
-        <dd style="margin: 0;">jake-pattersonnz</dd>
+        <dd style="margin: 0;"><a href="https://www.linkedin.com/in/jake-pattersonnz" target="_blank" rel="noopener">jake-pattersonnz</a></dd>
         <dt style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-neutral-600);">Location</dt>
         <dd style="margin: 0;">Christchurch, New Zealand</dd>
       </dl>
@@ -273,8 +282,23 @@
   </footer>
 </div>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props="{&quot;groupProjects&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Projects page&quot;}}">
+<script type="text/x-dc" data-dc-script data-props="{}">
 const PROJECTS = [
+  {
+    slug: 'wheels26', title: '26" Wheels', org: 'Personal project', blank: true,
+    tags: [],
+    skills: [],
+    cover: '',
+    images: [
+      { file: 'wheels26-1.png', caption: '', pending: true },
+      { file: 'wheels26-2.png', caption: '', pending: true },
+      { file: 'wheels26-3.png', caption: '', pending: true },
+      { file: 'wheels26-4.png', caption: '', pending: true },
+      { file: 'wheels26-5.png', caption: '', pending: true },
+      { file: 'wheels26-6.png', caption: '', pending: true }
+    ],
+    body: 'Overview to come.'
+  },
   {
     slug: 'kotare', title: 'Project Kōtare', org: 'UC Aerospace',
     tags: ['composites', 'cad', 'aero'],
@@ -394,16 +418,40 @@ const PROJECTS = [
       { file: 'tapwrench-6.png', caption: '', pending: true }
     ],
     body: 'The workshop training programme focused on developing skills in precision machining and metal fabrication, as well as improving the ability to interpret technical drawings and understand how components are manufactured, so this can be kept in mind during the design process. It involved hands-on experience with a range of equipment including the lathe, mill, MIG and stick welding, drill press, bandsaw, and basic finishing processes such as filing and sanding. The training taught me how to precisely machine and fabricate components, improved my understanding of manufacturing constraints, and gave me practical insight into how design decisions are constrained by production methods.'
+  },
+  {
+    slug: 'surfboard', title: 'Surfboard Repair', org: 'Personal project', blank: true,
+    tags: [],
+    skills: [],
+    cover: '',
+    images: [
+      { file: 'surfboard-1.png', caption: '', pending: true },
+      { file: 'surfboard-2.png', caption: '', pending: true },
+      { file: 'surfboard-3.png', caption: '', pending: true },
+      { file: 'surfboard-4.png', caption: '', pending: true },
+      { file: 'surfboard-5.png', caption: '', pending: true },
+      { file: 'surfboard-6.png', caption: '', pending: true }
+    ],
+    body: 'Overview to come.'
+  },
+  {
+    slug: 'woodworking', title: 'Woodworking', org: 'Personal project', blank: true,
+    tags: [],
+    skills: [],
+    cover: '',
+    images: [
+      { file: 'woodworking-1.png', caption: '', pending: true },
+      { file: 'woodworking-2.png', caption: '', pending: true },
+      { file: 'woodworking-3.png', caption: '', pending: true },
+      { file: 'woodworking-4.png', caption: '', pending: true },
+      { file: 'woodworking-5.png', caption: '', pending: true },
+      { file: 'woodworking-6.png', caption: '', pending: true }
+    ],
+    body: 'Overview to come.'
   }
 ];
 
-const GROUPS = [
-  { key: 'composites', name: 'Composites', note: 'Carbon and fibreglass layups, resin infusion, plug and mould work.' },
-  { key: 'cad', name: 'CAD & Design', note: 'SolidWorks and Onshape models, technical drawings, design coordination.' },
-  { key: 'fabrication', name: 'Machining & Fabrication', note: 'Lathe and mill work, welding, 3D printing, laser cutting and assembly.' },
-  { key: 'aero', name: 'Aerospace & Aerodynamics', note: 'Airframes, flight simulation and aerodynamic test equipment.' },
-  { key: 'electronics', name: 'Electronics & Systems', note: 'Microcontroller circuits, sensors and powered mechanisms.' }
-];
+const ORDER = ['wheels26','kotare','wheel','warman','chassis','nzra','tapwrench','formularc','windtunnel','surfboard','woodworking'];
 
 class Component extends DCLogic {
   state = { view: 'home', slug: PROJECTS[0].slug };
@@ -461,7 +509,8 @@ class Component extends DCLogic {
     const cover = p.cover ? 'assets/' + p.cover : (figures.find((f) => f.src) || {}).src || '';
     return Object.assign({}, p, {
       cover: cover,
-      skillLine: p.skills.slice(0, 3).join(' · '),
+      skillLine: p.blank ? 'Documentation in progress' : p.skills.slice(0, 3).join(' · '),
+      blank: !!p.blank,
       figures: figures,
       open: () => this.go('project', p.slug)
     });
@@ -469,18 +518,12 @@ class Component extends DCLogic {
 
   renderVals() {
     const view = this.state.view;
-    const grouped = this.props.groupProjects !== false;
-    const idx = Math.max(0, PROJECTS.findIndex((p) => p.slug === this.state.slug));
-    const current = this.decorate(PROJECTS[idx]);
-    const prev = PROJECTS[(idx - 1 + PROJECTS.length) % PROJECTS.length];
-    const next = PROJECTS[(idx + 1) % PROJECTS.length];
-
-    const groups = grouped
-      ? GROUPS.map((g) => {
-          const items = PROJECTS.filter((p) => p.tags.indexOf(g.key) !== -1).map((p) => this.decorate(p));
-          return { name: g.name, note: g.note, items: items };
-        }).filter((g) => g.items.length > 0)
-      : [{ name: 'All projects', note: 'Every project, most recent work first.', items: PROJECTS.map((p) => this.decorate(p)) }];
+    const ordered = ORDER.map((sl) => PROJECTS.find((p) => p.slug === sl)).filter(Boolean);
+    const idx = Math.max(0, ordered.findIndex((p) => p.slug === this.state.slug));
+    const current = this.decorate(ordered[idx]);
+    const prev = ordered[(idx - 1 + ordered.length) % ordered.length];
+    const next = ordered[(idx + 1) % ordered.length];
+    const gallery = ordered.map((p) => this.decorate(p));
 
     return {
       isHome: view === 'home',
@@ -497,10 +540,16 @@ class Component extends DCLogic {
       prevTitle: prev.title,
       nextTitle: next.title,
       current: current,
-      groups: groups,
-      featured: [PROJECTS[0], PROJECTS[4], PROJECTS[6]].map((p) => this.decorate(p)),
+      gallery: gallery,
+      featured: ['wheels26', 'kotare', 'warman'].map((sl) => this.decorate(PROJECTS.find((p) => p.slug === sl))),
+      hobbies: [
+        { title: 'Hockey', file: 'hobby-hockey.png', blurb: 'Club hockey through school and university — the team sport that taught me the most about working to a plan under pressure.' },
+        { title: 'Surfing', file: 'hobby-surfing.png', blurb: 'Weekends on the Canterbury coast whenever the swell is worth the drive.' },
+        { title: 'Hiking', file: 'hobby-hiking.png', blurb: 'Tramping and camping around the South Island, usually with more gear than strictly necessary.' },
+        { title: 'Golf', file: 'hobby-golf.png', blurb: 'A slow game that rewards patience and repetition, which suits how I like to solve problems.' }
+      ].map((h) => ({ title: h.title, blurb: h.blurb, file: h.file, src: '' })),
       skillGroups: [
-        { name: 'Fabrication', items: ['Precision lathe and mill', 'Composite structures', 'Welding', 'Woodworking'] },
+        { name: 'Fabrication', items: ['Composite structures', 'Precision lathe and mill', 'Woodworking', 'Welding'] },
         { name: 'Digital', items: ['SolidWorks', 'Onshape', 'Fusion 360', 'Python'] },
         { name: 'Electronics', items: ['Microcontroller circuits', 'Sensors', 'Avionics systems', 'Wiring and soldering'] },
         { name: 'Practice', items: ['Prototyping', 'Iterative design', 'Technical drawing', 'Teamwork and leadership'] }
